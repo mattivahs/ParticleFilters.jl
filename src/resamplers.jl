@@ -70,6 +70,10 @@ function resample(re::LowVarianceResampler, b::AbstractParticleBelief{S}, rng::A
     return ParticleCollection(ps)
 end
 
+"""
+Handle Particle Depletion
+"""
+
 function resample(re::LowVarianceResampler, b::ParticleCollection{S}, rng::AbstractRNG) where {S}
     r = rand(rng)*n_particles(b)/re.n
     chunk = n_particles(b)/re.n
